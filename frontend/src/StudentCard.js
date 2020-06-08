@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import './StudentCard.css'
 
-export default class StudentCard extends Component {
+const StudentCard = (props) => {
+    const {student} = props  
+    const {name} = student
 
-    render() {
-        return(
-            <div className="student">
-                <form>
-                    <label>Student Name</label><br></br>
-                    <button>Participating</button>
-                    <button>Not Participating</button>
-                </form>
-            </div>
-        )
-    }
+    return (
+        <div className="student">
+            <form>
+                <label>Student Name {name}</label><br></br>
+                <button>Participating</button>
+                <button>Not Participating</button>
+            </form>
+        </div>
+    )
 }
+export default StudentCard
