@@ -15,8 +15,8 @@ class AssessmentsController < ApplicationController
 
   # POST /assessments
   def create
-    @assessment = Assessment.new(assessment_params)
-
+    @assessment = Assessment.create(assessment_params)
+      # byebug
     if @assessment.save
       render json: @assessment, status: :created, location: @assessment
     else
@@ -46,6 +46,6 @@ class AssessmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def assessment_params
-      params.require(:assessment).permit(:participation, :comment, :student_id_id, :teacher_id_id)
+      params.require(:assessment).permit(:participation, :comment, :student_id, :teacher_id, :cycle)
     end
 end

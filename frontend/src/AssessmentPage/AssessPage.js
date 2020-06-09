@@ -60,15 +60,16 @@ todaysAssessment = () => {
 
 
 newAssessP = (student) => {
+
   let assessment = {
     participation: true,
     comment: "I'm a new assessment",
-    datetime: null,
     teacher_id: 1,
     student_id: student.id,
     cycle: 1,
   }
   console.log(assessment)
+
   this.postAssessment(assessment)
 }
 
@@ -111,7 +112,7 @@ render() {
             classes={this.state.classes}/>
           </div>
              <br></br>
-          <div className="student">
+          <div>
               Student to be assessed
             <StudentContainer 
             toAssess={this.state.toAssess}

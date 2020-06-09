@@ -1,6 +1,7 @@
-.student{
+.studentCard{
     background-color: red;
     border: royalblue;
-    border-width: 50;
+    border-width: 500px;
     text-align: center;
+    max-width: 400px;
 }
