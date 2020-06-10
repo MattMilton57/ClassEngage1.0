@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClassStatsContainer from'./ClassStatsContainer'
+import EditClassesContainer from'./EditClassesContainer'
 const ClassID = [1]
 
-class ClassStats extends React.Component{
+class EditClasses extends React.Component{
 
-
-  
     constructor() {
         super();
         this.state = {
@@ -43,7 +41,4 @@ render() {
 }
 }
 
-export default ClassStats
-
-
-
+export default EditClasses

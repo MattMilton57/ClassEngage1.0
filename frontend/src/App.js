@@ -22,7 +22,7 @@ class App extends React.Component {
       registrations: [],
       enrollments: [],
       classes: [],
-      selectedClass:1
+      selectedClass:""
     };
   }
 
@@ -99,10 +99,18 @@ render() {
     <Router>
       <div>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/classlist" component={ClassList} />
         <Route exact path="/assess" component={AssessPage} />
-        {/* <Route exact path="/stats" component={ClassStats} cheeseBread={this.state.students}/> */}
-        
+
+        <Route 
+        exact 
+        path="/classlist" 
+        render={ props => 
+          <ClassList {...props} 
+            selectedClass={this.state.selectedClass}
+            allClasses={this.state.classes}
+        />}
+        />
+
         <Route 
         exact 
         path="/stats" 

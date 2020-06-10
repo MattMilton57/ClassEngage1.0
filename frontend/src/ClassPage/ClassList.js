@@ -2,38 +2,41 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ClassContainer from './ClassContainer';
 
-const API = ('http://localhost:3000/periods')
-
-
 class ClassList extends React.Component{
 
   constructor() {
     super();
     this.state = {
-      classes: []
+      classes: [],
+      selectedClass:""
     };
   }
 
 
 componentDidMount() {
-  // console.log(API)
-  fetch (API) 
-  .then (res => res.json())
-  // .then (res => (console.log(res)))
-  .then (result => {
-    this.setState({
-      isLoaded: true,
-      classes: result
-    });
-  });
+  console.log(this.props.allClasses)
+  this.setState({
+    classes: this.props.allClasses
+  })
 }
 
+// setCurrentClass = () => {
+//   console.log("a click")
+  // this.setState((prev) => {
+  //   return {
+  //     selectedClass: 
+  //   }
+  // })
+// }
+
 render() {
-    return (
-      <div>
+  return (
+    <div>
           Your Classes
         <div>
-          <ClassContainer classes={this.state.classes} />
+          <ClassContainer 
+          classes={this.props.allClasses} 
+          stateForLink={this.setCurrentClass}/>
         </div>
             <Link to="/assess">
                 {/* <button type="button"> */}
@@ -44,4 +47,17 @@ render() {
     );
   }
 }
-  export default ClassList
+export default ClassList
+
+
+
+
+// fetch (API) 
+// .then (res => res.json())
+// // .then (res => (console.log(res)))
+// .then (result => {
+//   this.setState({
+//     isLoaded: true,
+//     classes: result
+//   });
+// });

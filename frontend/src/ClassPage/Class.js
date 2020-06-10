@@ -5,13 +5,14 @@ const Class = (props) => {
     const {id, subject} = period
     const sendTheClick = () =>{
         // stateForLink(props.period.id)
-        stateForLink({id})
+        stateForLink(props.period)
     }
 
     return (
         <div className={id}
         onClick={sendTheClick}>
           
+          {/* <li>{subject}</li> */}
           <li><a href="http://localhost:3001/assess">{subject}</a></li>
             {/* <h1>{subject}</h1> */}
          

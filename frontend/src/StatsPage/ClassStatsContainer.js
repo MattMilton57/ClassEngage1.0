@@ -10,7 +10,7 @@ const ClassStatsContainer = (props) => {
 
         return enrollments.map(enrollment => {
             const gatheredAssessments = []
-            const scoreArray= []
+            let scoreArray= []
             // console.log(enrollment.student_id)
             if (enrollment.period_id == 1){
                 const thisEnrollment=enrollment
@@ -40,8 +40,28 @@ const ClassStatsContainer = (props) => {
                         
                     }
                     )}
-                        // console.log(scoreArray)
-                        console.log(gatheredAssessments)
+                        scoreArray = (gatheredAssessments.slice(1))
+                        let name = gatheredAssessments[0]
+                        let length = scoreArray.length
+                        var sum = 0;
+                        for (var i = 0; i < length; i++) {
+                        sum += scoreArray[i]
+                        }
+                        var score = (sum/length)
+                        // let final = []
+                        // final.push(scoreArray[0])
+                        // final.push(score)
+                        console.log(sum)
+                        console.log(length)
+                        if (score >= 0){
+                            return (
+                                <Stats
+                                score={score}
+                                name={name}
+                                />
+                            )
+                        }
+                       
                     }
                     
                     ) }

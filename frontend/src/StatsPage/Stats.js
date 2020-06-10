@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 
 const Stats = (props) => {
-    const {assessments, enrollment, students} = props
+    const {score, name} = props
     // const {participating, student_id} = assessments
     // const {student_id} = enrollment
-    const {name, student_id} = students
+    // const {name, student_id} = students
 
     
     
     return(
         <div>
-            <label>score for: {name}{student_id}</label>
+            <label>test {name}  {score}</label>
         </div>
     )
 }
