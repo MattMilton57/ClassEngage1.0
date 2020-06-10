@@ -23,7 +23,7 @@ class AssessPage extends React.Component{
 
 componentDidMount() {
   this.fetchClasses()
-  this.fetchStudents()
+  // this.fetchStudents()
 }
 
 fetchStudents = () => {
@@ -34,7 +34,7 @@ fetchStudents = () => {
       isLoaded: true,
       students: result
     });
-    this.todaysAssessment()
+    
   });
 }
 

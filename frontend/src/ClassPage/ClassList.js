@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ClassContainer from './ClassContainer';
 
-
 const API = ('http://localhost:3000/periods')
 
 

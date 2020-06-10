@@ -4,10 +4,14 @@ class LandingPage extends React.Component{
 render() {
     return (
       <div>
-        Im the landing page and I like cheese.
         <Link to="/classlist">
             <button type="button">
-                Click Me for the class list!
+                class list!
+            </button>
+        </Link>
+        <Link to="/stats">
+            <button type="button">
+                stats page
             </button>
         </Link>
       </div>

@@ -1,118 +1,68 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ClassStatsContainer from'./ClassStatsContainer'
-const APIS = ('http://localhost:3000/students')
-const APIP = ('http://localhost:3000/periods')
-const APIA = ('http://localhost:3000/assessments')
-const APIR = ('http://localhost:3000/registrations')
-const APIE = ('http://localhost:3000/students_periods')
-const ClassID = (1)
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+// import LandingPage from './LandingPage/LandingPage';
+const ClassID = [1]
 
 class ClassStats extends React.Component{
 
+
+  
     constructor() {
         super();
         this.state = {
-          students: [],
-          assessments: [],
           classToView: [],
           assessmentDisplay: [],
+          classEnrollments: [],
           studentsInClass: [],
-          registrations: [],
-          enrollments: [],
         };
       }
 
-componentDidMount() {
-    this.fetchStudents()
-    this.fetchAssessments()
-    this.fetchRegistrations()
-    this.fetchEnrollments()
-    console.log("mounted")
-}
+      componentDidMount() {
+        // this.loadState()
+        // console.log(this.props.allEnrollments)
+      }
+      
+      // handleAddFood = () => {
+      //   const {allStudents} = this.props;
+      //   console.log(this.props.allStudents);
+      // }
 
-  fetchStudents = () => {
-    fetch (APIS) 
-    .then (res => res.json())
-    .then (result => {
-      this.setState({
-        isLoaded: true,
-        students: result
-      });
-      // this.filterStudents()
-      console.log(this.students)
-    });
-  }
+// loadState() {
+//   this.setState=({
+//     class: allStudents})
+// }
 
-fetchAssessments = () => {
-    fetch (APIA) 
-    .then (res => res.json())
-    .then (result => {
-      this.setState({
-        isLoaded: true,
-        assessments: result
-      });
-      // this.fiterAssessments()
-    });
-  } 
-
-  fetchRegistrations = () => {
-    fetch (APIR) 
-    .then (res => res.json())
-    .then (result => {
-      this.setState({
-        isLoaded: true,
-        registrations: result
-      });
-      // this.filterStudents()
-      console.log(this.registrations)
-    });
-  }
-
-  fetchEnrollments = () => {
-    fetch (APIE) 
-    .then (res => res.json())
-    .then (result => {
-      this.setState({
-        isLoaded: true,
-        enrollments: result
-      });
-      // this.filterStudents()
-      console.log(this.enrollments)
-    });
-  }
-
-// filterStudents = () => {
-//   this.setState((prev) =>{
-//     return {
-//       classToView: [...prev.students.filter(student => student.hat]
-//     }
+// filterPoets = () => {
+//   let enrollments = this.props.allEnrollments
+//   enrollments = enrollments.filter((enrollment) => {
+//     let poetName = poet.firstName.toLowerCase() + poet.lastName.toLowerCase()
+//     return poetName.indexOf(
+//       poetFilter.toLowerCase()) !== -1
 //   })
+//   this.setState({
+//     filteredPoets
+//   })
+// }
 
+// getNextSushi = () => {
+//   let enrollments = this.props.allEnrollments
+//   this.setState((prev) => {
+//     return {
+//       classEnrollments: [enrollments.filter(sushi=>!this.isSushiEaten(sushi))],
+//       currentSushi: prev.sushi.slice(0, 4),
+//     };
+//   });
+// };
 
-// }  
-
-
-
-filterAssessments = () => {
-  
-
+tempfunction = () =>{
+  // let enrollments = this.props.allEnrollments
+  return this.props.allEnrollments.map(thing =>{
+   console.log("foo")
+  })
 }
 
-onTodoClick(id){
-  this.setState({items: this.state.items.filter(item => item.news_id == id )
-  });
-}
-
-// eatSushi = (eatenSushi) => {
-//     if (eatenSushi.price <= this.state.wallet && !this.isSushiEaten(eatenSushi))
-//       this.setState((prev) => {
-//         return {
-//           emptyPlates: [...prev.emptyPlates, eatenSushi],
-//           wallet: prev.wallet - eatenSushi.price,
-//         };
-//       });
-//   };
 
 
 
@@ -120,11 +70,16 @@ render() {
     return(
         <div>
             <div id="classSelect">
+            <Link to="/">
+            <button type="button">
+                class list!
+            </button>
+        </Link>
               <ClassStatsContainer 
-              students = {this.students}
-              assessments = {this.assessments}
-              enrollments = {this.enrollments}
-              ClassID = {this.ClassID}
+              students = {this.props.allStudents}
+              assessments = {this.props.allAssessments}
+              enrollments = {this.props.allEnrollments}
+              classid = {this.props.selectedClass}
               />
               Stats page
             </div>
