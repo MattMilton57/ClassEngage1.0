@@ -20,14 +20,7 @@ componentDidMount() {
   })
 }
 
-// setCurrentClass = () => {
-//   console.log("a click")
-  // this.setState((prev) => {
-  //   return {
-  //     selectedClass: 
-  //   }
-  // })
-// }
+
 
 render() {
   return (

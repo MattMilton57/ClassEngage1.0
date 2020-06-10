@@ -6,12 +6,22 @@ render() {
       <div>
         <Link to="/classlist">
             <button type="button">
-                class list!
+                class list
             </button>
         </Link>
         <Link to="/stats">
             <button type="button">
                 stats page
+            </button>
+        </Link>
+        <Link to="/editclasses">
+            <button type="button">
+                edit classes
+            </button>
+        </Link>
+        <Link to="/enroll">
+            <button type="button">
+                enroll student
             </button>
         </Link>
       </div>

@@ -16,25 +16,28 @@ class EditClasses extends React.Component{
       }
 
       componentDidMount() {
-        console.log("stats page mounted")
       }
+
+outOfClass = (student) => {
+    console.log(student.name)
+}      
       
 render() {
     return(
         <div>
-            <div id="classSelect">
-            <Link to="/">
-            <button type="button">
-                class list!
-            </button>
-        </Link>
-              <ClassStatsContainer 
-              students = {this.props.allStudents}
-              assessments = {this.props.allAssessments}
-              enrollments = {this.props.allEnrollments}
-              classid = {this.props.selectedClass}
-              />
-              Stats page
+            <div>
+                <Link to="/">
+                    <button type="button">
+                        landing page
+                    </button>
+                </Link>
+                <EditClassesContainer 
+                students={this.props.allStudents}
+                enrollments={this.props.allEnrollments}
+                thisClass={this.props.selectedClass}
+                outOfClass={this.outOfClass}
+                />
+
             </div>
         </div>
     )

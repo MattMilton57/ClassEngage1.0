@@ -4,6 +4,8 @@ import LandingPage from './LandingPage/LandingPage';
 import AssessPage from './AssessmentPage/AssessPage';
 import ClassList from './ClassPage/ClassList';
 import ClassStats from './StatsPage/ClassStats';
+import EditClasses from './EditClasses/EditClasses';
+import EnrollStudent from './EnrollStudentPage/EnrollStudent'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 const APIS = ('http://localhost:3000/students')
 const APIC = ('http://localhost:3000/periods')
@@ -22,7 +24,7 @@ class App extends React.Component {
       registrations: [],
       enrollments: [],
       classes: [],
-      selectedClass:""
+      selectedClass:1
     };
   }
 
@@ -99,7 +101,7 @@ render() {
     <Router>
       <div>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/assess" component={AssessPage} />
+      
 
         <Route 
         exact 
@@ -113,9 +115,43 @@ render() {
 
         <Route 
         exact 
+        path="/editclasses" 
+        render={ props => 
+          <EditClasses {...props} 
+            allStudents={this.state.students}
+            allEnrollments={this.state.enrollments}
+            selectedClass={this.state.selectedClass}
+            allClasses={this.state.classes}
+        />}
+        />
+
+        <Route 
+        exact 
+        path="/enroll" 
+        render={ props => 
+          <EnrollStudent {...props} 
+            allStudents={this.state.students}
+        />}
+        />
+
+        <Route 
+        exact 
         path="/stats" 
         render={ props => 
           <ClassStats {...props} 
+            allStudents={this.state.students}
+            allRegistrations={this.state.registrations}
+            allEnrollments={this.state.enrollments}
+            allAssessments={this.state.assessments}
+            selectedClass={this.state.selectedClass}
+        />}
+        />
+
+        <Route 
+        exact 
+        path="/assess" 
+        render={ props => 
+          <AssessPage {...props} 
             allStudents={this.state.students}
             allRegistrations={this.state.registrations}
             allEnrollments={this.state.enrollments}
