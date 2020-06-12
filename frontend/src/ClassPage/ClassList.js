@@ -53,6 +53,11 @@ render() {
                 landing page
             </button>
         </Link>
+        <Link to="/assess">
+                <button type="button">
+                   assessment
+                </button>
+             </Link>
       </div>
           Your Classes
         <div>

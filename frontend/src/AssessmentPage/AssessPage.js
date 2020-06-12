@@ -11,13 +11,15 @@ const Teacher=(1)
 
 class AssessPage extends React.Component{
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       students: [],
       classes: [],
       toAssess: [],
       assessed: [],
+      thisClass: [],
+      enrollments: [],
       participation:""
     };
   }
@@ -26,6 +28,9 @@ class AssessPage extends React.Component{
 componentDidMount() {
   this.fetchClasses()
   this.fetchStudents()
+  this.setState({
+    enrollments: this.props.allEnrollments
+  })
 }
 
 fetchStudents = () => {
@@ -36,8 +41,24 @@ fetchStudents = () => {
       isLoaded: true,
       students: result
     });
-    this.todaysAssessment()
+    this.buildClassList()
   });
+}
+
+buildClassList(){
+  var thisClass=[]
+  return this.state.enrollments.map(enrollment => {
+      if (enrollment.period_id == this.state.selectedClass){
+          return this.state.students.map(student => {
+              if (student.id == enrollment.student_id){
+                  return thisClass.push(student)
+                  }
+              })
+          }
+          this.setState({
+            thisClass: thisClass
+          }) 
+  })
 }
 
 fetchClasses = () => {
@@ -51,14 +72,7 @@ fetchClasses = () => {
   });
 }
 
-todaysAssessment = () => {
-  this.setState((prev) => {
-    return {
-      students: [...prev.students.slice(4), ...prev.toAssess.filter(students=>!this.beenAssessed(students))],
-      toAssess: prev.students.slice(0, 4),
-    };
-  });
-};
+
 
 
 newAssessP = (student) => {
@@ -138,6 +152,8 @@ render() {
               Student to be assessed
             <AssessmentContainer 
             toAssess={this.state.toAssess}
+            students={this.props.allStudents}
+            enrollments={this.props.allEnrollments}
             onParticipating = {this.newAssessP}
             onNotParticipating = {this.newAssessN}/>
         </div>
