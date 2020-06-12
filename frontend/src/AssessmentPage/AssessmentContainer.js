@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react';
-import StudentCard from './StudentCard'
+import AssessmentCard from './AssessmentCard'
 
-const StudentContainer = (props) => {
+const AssessmentContainer = (props) => {
     const {toAssess, onParticipating, onNotParticipating} = props;
 
     const sendStudents = () => {
         return toAssess.map(student => {
             return (
-                <StudentCard 
+                <AssessmentCard 
                 student={student}
                 onParticipating={onParticipating}
                 onNotParticipating={onNotParticipating}  />
@@ -26,4 +26,4 @@ const StudentContainer = (props) => {
         </Fragment>
     )
 }
-export default StudentContainer
+export default AssessmentContainer

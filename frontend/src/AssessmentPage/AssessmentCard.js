@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './StudentCard.css'
+import './AssessmentCard.css'
 
-const StudentCard = (props) => {
+const AssessmentCard = (props) => {
     const {onParticipating, onNotParticipating, student, comment} = props  
     const {name, id} = student
     const handleYes = (e) =>{
@@ -42,7 +42,7 @@ const StudentCard = (props) => {
     )
     
 }
-export default StudentCard
+export default AssessmentCard
 
 
 

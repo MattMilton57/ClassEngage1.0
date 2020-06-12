@@ -1,8 +1,8 @@
 import React from 'react';
-import StudentCard from './StudentCard'
+import StudentCard from './AssessmentCard'
 import {students} from '../StudentData'
 import ClassDropdown from '../ClassDropdown'
-import StudentContainer from'./StudentContainer'
+import AssessmentContainer from'./AssessmentContainer'
 import { Link } from 'react-router-dom';
 const APIS = ('http://localhost:3000/students')
 const APIP = ('http://localhost:3000/periods')
@@ -136,7 +136,7 @@ render() {
       </div>
           <div>
               Student to be assessed
-            <StudentContainer 
+            <AssessmentContainer 
             toAssess={this.state.toAssess}
             onParticipating = {this.newAssessP}
             onNotParticipating = {this.newAssessN}/>

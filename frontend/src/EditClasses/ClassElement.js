@@ -1,11 +1,10 @@
 import React from 'react'
 
 const ClassElement = (props) => {
-    const {student, outOfClass} = props
+    const {student, enrollment, outOfClass} = props
     const deRegister = (e) =>{
         e.preventDefault()
-        console.log('deRegister')
-        outOfClass(props.student)
+        outOfClass(props.student, props.enrollment)
     }
 
     return(
