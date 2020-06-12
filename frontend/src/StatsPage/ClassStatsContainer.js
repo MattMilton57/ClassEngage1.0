@@ -29,15 +29,10 @@ const ClassStatsContainer = (props) => {
                                     // console.log(gatheredAssessments)
                                 }else{
                                     gatheredAssessments.push(0)
-                                }
-                                   
-                                
-                                
-                            }
-                            
+                                }     
+                            }   
                         }
-                        )}
-                        
+                        )}   
                     }
                     )}
                         scoreArray = (gatheredAssessments.slice(1))
@@ -47,7 +42,8 @@ const ClassStatsContainer = (props) => {
                         for (var i = 0; i < length; i++) {
                         sum += scoreArray[i]
                         }
-                        var score = (sum/length)
+                        var ag = (sum/length)
+                        var score = Math.round(ag * 100) / 100
                         // let final = []
                         // final.push(scoreArray[0])
                         // final.push(score)

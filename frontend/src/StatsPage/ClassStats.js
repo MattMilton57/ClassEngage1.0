@@ -25,18 +25,34 @@ render() {
     return(
         <div>
             <div id="classSelect">
-            <Link to="/">
+            <div>
+        <Link to="/classlist">
             <button type="button">
-                class list!
+                class list
             </button>
         </Link>
+        <Link to="/editclasses">
+            <button type="button">
+                edit classes
+            </button>
+        </Link>
+        <Link to="/enroll">
+            <button type="button">
+                enroll student
+            </button>
+        </Link>
+        <Link to="/">
+            <button type="button">
+                landing page
+            </button>
+        </Link>
+      </div>
               <ClassStatsContainer 
               students = {this.props.allStudents}
               assessments = {this.props.allAssessments}
               enrollments = {this.props.allEnrollments}
               classid = {this.props.selectedClass}
               />
-              Stats page
             </div>
         </div>
     )

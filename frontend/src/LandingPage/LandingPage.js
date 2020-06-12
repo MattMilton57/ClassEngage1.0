@@ -24,6 +24,8 @@ render() {
                 enroll student
             </button>
         </Link>
+        <br></br>
+        <l1>Class Engage</l1>
       </div>
     );
   }

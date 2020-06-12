@@ -16,16 +16,20 @@ const APIE = ('http://localhost:3000/students_periods')
 class App extends React.Component {
   
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       students: [],
       assessments: [],
       registrations: [],
       enrollments: [],
       classes: [],
-      selectedClass:1
+      selectedClass:2
     };
+  }
+
+  setSelectedClass = (classID) => {
+    this.setState({ selectedClass: classID })
   }
 
   componentDidMount() {
@@ -108,6 +112,7 @@ render() {
         path="/classlist" 
         render={ props => 
           <ClassList {...props} 
+            thatClass={this.setSelectedClass}
             selectedClass={this.state.selectedClass}
             allClasses={this.state.classes}
         />}

@@ -20,17 +20,18 @@ const StudentCard = (props) => {
         <div className="student">
             <form id={id} className="studentCard">
                 <label>Student: {name}</label><br></br>
-                <div  onClick={(e) =>handleYes(e)} >
-                <l1>Participating</l1>
+                <div>
+                <button  onClick={(e) =>handleYes(e)} >Participating</button>
                 </div>
-                <div  onClick={(e) =>handleNo(e)} >
-                <l1>Not Participating</l1>
+                <div>
+                <button  onClick={(e) =>handleNo(e)} >Nope</button>
+                </div>
                 {/* </div>
                 <label for="comment">Comment: </label>
                 <input id="comment"></input>
                 <div> */}
 
-                </div>
+
             </form>
         </div>
         <div className="breathingRoom">

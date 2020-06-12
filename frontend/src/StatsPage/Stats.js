@@ -5,7 +5,7 @@ const Stats = (props) => {
 
     return(
         <div>
-            <label>test {name}  {score}</label>
+            <label>Student name: {name}, Current Score: {score}</label>
         </div>
     )
 }

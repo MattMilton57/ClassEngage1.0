@@ -65,11 +65,28 @@ render() {
     return(
         <div>
             <div>
-                <Link to="/">
-                    <button type="button">
-                        landing page
-                    </button>
-                </Link>
+            <div>
+        <Link to="/classlist">
+            <button type="button">
+                class list
+            </button>
+        </Link>
+        <Link to="/stats">
+            <button type="button">
+                stats page
+            </button>
+        </Link>
+        <Link to="/editclasses">
+            <button type="button">
+                edit classes
+            </button>
+        </Link>
+        <Link to="/">
+            <button type="button">
+                landing page
+            </button>
+        </Link>
+      </div>
                 <div className='studentform'>
                     <form>
                     <div className="namediv" > 

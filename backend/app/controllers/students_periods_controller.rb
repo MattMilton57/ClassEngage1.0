@@ -15,7 +15,7 @@ class StudentsPeriodsController < ApplicationController
 
   # POST /students_periods
   def create
-    @students_period = StudentsPeriod.new(students_period_params)
+    @students_period = StudentsPeriod.create(students_period_params)
 
     if @students_period.save
       render json: @students_period, status: :created, location: @students_period

@@ -3,6 +3,7 @@ import StudentCard from './StudentCard'
 import {students} from '../StudentData'
 import ClassDropdown from '../ClassDropdown'
 import StudentContainer from'./StudentContainer'
+import { Link } from 'react-router-dom';
 const APIS = ('http://localhost:3000/students')
 const APIP = ('http://localhost:3000/periods')
 const APIA = ('http://localhost:3000/assessments')
@@ -106,6 +107,33 @@ postAssessment = (assessment) => {
 render() {
     return (
         <div>
+                <div>
+        <Link to="/classlist">
+            <button type="button">
+                class list
+            </button>
+        </Link>
+        <Link to="/stats">
+            <button type="button">
+                stats page
+            </button>
+        </Link>
+        <Link to="/editclasses">
+            <button type="button">
+                edit classes
+            </button>
+        </Link>
+        <Link to="/enroll">
+            <button type="button">
+                enroll student
+            </button>
+        </Link>
+        <Link to="/">
+            <button type="button">
+                landing page
+            </button>
+        </Link>
+      </div>
           <div>
               Student to be assessed
             <StudentContainer 
