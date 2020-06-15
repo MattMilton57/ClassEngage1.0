@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ClassContainer from './ClassContainer';
+// import ClassMenu from './ClassMenu/ClassMenu'
+
 
 class ClassList extends React.Component{
 
@@ -14,17 +16,15 @@ class ClassList extends React.Component{
 
 
 componentDidMount() {
-  console.log(this.props.allClasses)
   this.setState({
     classes: this.props.allClasses
   })
+  // this.setCurrentClass()
 }
 
-setCurrentClass = (period) =>{
-  var thisPer = (period.id)
-  // console.log(thisPer)
-  this.props.thatClass(thisPer)
-}
+// setCurrentClass = () =>{
+//   thatClass = 5
+// }
 
 
 

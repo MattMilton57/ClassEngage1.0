@@ -2,16 +2,14 @@ import React, { Component } from 'react'
 import './AssessmentCard.css'
 
 const AssessmentCard = (props) => {
-    const {onParticipating, onNotParticipating, student, comment} = props  
+    const {onParticipating, onNotParticipating, student} = props  
     const {name, id} = student
     const handleYes = (e) =>{
         e.preventDefault()
-        console.log('hi')
         onParticipating(props.student)
     }
     const handleNo = (e) =>{
         e.preventDefault()
-        console.log('ho')
         onNotParticipating(props.student, props.comment)
     }
 
@@ -38,6 +36,7 @@ const AssessmentCard = (props) => {
         
             <br></br>
         </div>
+                
         </div>
     )
     

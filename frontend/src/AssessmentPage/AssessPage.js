@@ -75,46 +75,7 @@ fetchClasses = () => {
 
 
 
-newAssessP = (student) => {
 
-  let assessment = {
-    participation: true,
-    comment: "",
-    teacher_id: 1,
-    student_id: student.id,
-    cycle: 1,
-  }
-  console.log(assessment)
-
-  this.postAssessment(assessment)
-}
-
-newAssessN = (student) => {
-  let assessment = {
-    participation: false,
-    comment: "",
-    datetime: null,
-    teacher_id: 1,
-    student_id: student.id,
-    cycle: 1,
-  }
-  console.log(assessment)
-  this.postAssessment(assessment)
-}
-
-postAssessment = (assessment) => {
-  fetch((APIA), {
-      method: 'POST',
-      headers: {
-          'access-control-allow-origin':'*',
-          'Content-Type': 'application/json',
-          'Accept':'application/json'
-      }, 
-      body: JSON.stringify({assessment})
-  })
-  .then(res => res.json())
-  .then(res => console.log(res))
-}
 
 
 

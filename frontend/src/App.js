@@ -6,6 +6,7 @@ import ClassList from './ClassPage/ClassList';
 import ClassStats from './StatsPage/ClassStats';
 import EditClasses from './EditClasses/EditClasses';
 import EnrollStudent from './EnrollStudentPage/EnrollStudent'
+import ClassMenu from './ClassMenu/ClassMenu'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 const APIS = ('http://localhost:3000/students')
 const APIC = ('http://localhost:3000/periods')
@@ -24,7 +25,7 @@ class App extends React.Component {
       registrations: [],
       enrollments: [],
       classes: [],
-      selectedClass:2
+      // selectedClass:
     };
   }
 
@@ -105,7 +106,17 @@ render() {
     <Router>
       <div>
         <Route exact path="/" component={LandingPage} />
-      
+        
+        <Route 
+        exact 
+        path="/menu" 
+        render={ props => 
+          <ClassMenu {...props} 
+            thatClass={this.setSelectedClass}
+            selectedClass={this.state.selectedClass}
+            allClasses={this.state.classes}
+        />}
+        />
 
         <Route 
         exact 
